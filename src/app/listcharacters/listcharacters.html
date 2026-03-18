@@ -1,18 +1,22 @@
 <p class="text-muted">Total characters: <strong>{{ characters().length }}</strong></p>
 
 @if (characters().length === 0) {
-<div class="alert alert-warning">Could not connect to the Server</div>
+<div class="alert alert-warning">No characters found.</div>
 } @else {
 <div class="row row-cols-1 row-cols-md-3 g-4">
     @for (character of characters(); track $index) {
     <div class="col">
-        <div class="card h-100 w-100 shadow-sm">
+        <div class="card h-100 shadow-sm">
             <img src="{{ character.img }}" class="card-img-top" alt="{{ character.name }}"
-                style="object-fit: contain; height: 300px;">
+                style="object-fit: contain; height: 200px; background-color: #f8f9fa;"
+                (error)="$event.target.src='https://placehold.co/300x200?text=No+Image'">
             <div class="card-body">
                 <h5 class="card-title">{{ character.name || 'Unknown Character' }}</h5>
                 <span class="badge bg-primary me-1">{{ character.role }}</span>
                 <span class="badge bg-info text-dark">{{ character.element }}</span>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-danger btn-sm" (click)="delete(character._id)">Delete</button>
             </div>
         </div>
     </div>
