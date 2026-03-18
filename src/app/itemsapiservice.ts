@@ -8,6 +8,37 @@ import { CharacterDetails } from './models/characterdetails.interface';
   providedIn: 'root',
 })
 export class Itemsapiservice {
-  
-  
+  private _http = inject(HttpClient);
+  private _apiUrl = 'http://localhost:5050/genshin';
+
+  public characters = signal<CharacterDetails[]>([]);
+
+  // return all cars from database
+  getItems() {
+    const url = this._apiUrl;
+    this._http.get<CharacterDetails[]>(url)
+      .subscribe(data => {
+          this.characters.set(data);
+      });
+  }
+
+  // add one car
+  addItem(myMake: string, myModel: string, myYear: string, myImage:string) {
+      const url = this._apiUrl;
+      let car={make:myMake, model:myModel, year:myYear, image:myImage}
+      this._http.post<CharacterDetails[]>(url, car)
+      .subscribe(data => {  
+          this.getItems();
+      });
+  }
+
+  // delete car by id
+  deleteItem(myId:string) {
+    const url = this._apiUrl + '/' + myId;
+    this._http.delete(url)
+    .subscribe(data => { 
+      this.getItems();
+    });
+  }
+
 }
