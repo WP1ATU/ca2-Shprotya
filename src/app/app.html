@@ -1,10 +1,11 @@
-<nav>
-    <a routerLink="/">List of Genshin Characters</a> <p>Yelyzaveta Kareieva - S00267553</p>
-    <div>
-        <a routerLink="/" routerLinkActive="fw-bold text-dark"
-            [routerLinkActiveOptions]="{exact: true}">Home</a> | 
-        <a routerLink="/about" routerLinkActive="fw-bold text-dark">About</a>
-    </div>
+<nav class="navbar px-4 mb-4">
+  <a class="navbar-brand" routerLink="/">Genshin Characters</a>
+  <div class="ms-auto d-flex gap-3">
+    <a class="nav-link" routerLink="/" routerLinkActive="fw-bold"
+      [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a class="nav-link" routerLink="/about" routerLinkActive="fw-bold">About</a>
+  </div>
+  <span class="text-secondary ms-4 small">Yelyzaveta Kareieva - S00267553</span>
 </nav>
 
 <router-outlet />

@@ -1,19 +1,21 @@
-<p>Total characters: {{ characters().length }}</p>
+<p class="text-muted">Total characters: <strong>{{ characters().length }}</strong></p>
+
 @if (characters().length === 0) {
-<p>No characters found.</p>
+<div class="alert alert-warning">Could not connect to the Server</div>
 } @else {
-@for (character of characters(); track $index) {
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="{{character.img}}" class="img-fluid rounded-start" alt="{{character.name}}">
-        </div>
-        <div class="col-md-8">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (character of characters(); track $index) {
+    <div class="col">
+        <div class="card h-100 w-100 shadow-sm">
+            <img src="{{ character.img }}" class="card-img-top" alt="{{ character.name }}"
+                style="object-fit: contain; height: 300px;">
             <div class="card-body">
-                <h5 class="card-title">{{character.name}}</h5>
+                <h5 class="card-title">{{ character.name || 'Unknown Character' }}</h5>
+                <span class="badge bg-primary me-1">{{ character.role }}</span>
+                <span class="badge bg-info text-dark">{{ character.element }}</span>
             </div>
         </div>
     </div>
+    }
 </div>
-}
 }
