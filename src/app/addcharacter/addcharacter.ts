@@ -15,8 +15,10 @@ export class Addcharacter {
   role = '';
   element = '';
   img = '';
+  rarity = '';
+  region = '';
 
   addItem() {
-    this._service.addItem(this.name, this.role, this.element, this.img);
+    this._service.addItem(this.name, this.role, this.element, this.img, this.rarity, this.region);
   }
 }

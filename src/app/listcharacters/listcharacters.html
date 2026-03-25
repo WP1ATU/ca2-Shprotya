@@ -14,6 +14,8 @@
                 <h5 class="card-title">{{ character.name || 'Unknown Character' }}</h5>
                 <span class="badge bg-primary me-1">{{ character.role }}</span>
                 <span class="badge bg-info text-dark">{{ character.element }}</span>
+                <span class="badge bg-warning text-dark">{{ character.rarity }}</span>
+                <span class="badge bg-success">{{ character.region }}</span>
             </div>
             <div class="card-footer">
                 <button class="btn btn-danger btn-sm" (click)="delete(character._id)">Delete</button>

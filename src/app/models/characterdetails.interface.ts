@@ -4,4 +4,6 @@ export interface CharacterDetails {
     role: string;
     element: string;
     img: string;
+    rarity: string;
+    region: string;
 }
