@@ -1,3 +1,3 @@
 export const environment = {
-    url: 'http://54.216.207.12:5050/genshin',
+    url: 'http://3.253.234.33:5050/genshin',
 };
