@@ -11,7 +11,7 @@
                 style="object-fit: contain; height: 200px; background-color: #f8f9fa;"
                 (error)="$event.target.src='https://placehold.co/300x200?text=No+Image'">
             <div class="card-body">
-                <h5 class="card-title mb-2">{{ character.name }}</h5>
+                <h5 class="card-title mb-2">{{ character.name || 'Unknown Character' }}</h5>
                 <div class="d-flex flex-wrap gap-1">
                     <span class="badge bg-primary">{{ character.role }}</span>
                     <span class="badge bg-info text-dark">{{ character.element }}</span>
