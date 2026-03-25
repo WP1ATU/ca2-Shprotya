@@ -3,13 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { signal } from '@angular/core';
 import { CharacterDetails } from './models/characterdetails.interface';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Itemsapiservice {
   private _http = inject(HttpClient);
-  private _apiUrl = 'http://localhost:5050/genshin';
+  //private _apiUrl = 'http://localhost:5050/genshin';
+  private _apiUrl = environment.url;
 
   public characters = signal<CharacterDetails[]>([]);
 
